@@ -35,6 +35,7 @@ public class SetmealController {
      */
     @PostMapping
     @ApiOperation("新增套餐")
+    //新增套餐 将redis缓存清理对应的缓存/精确清理   ps:在业务方面一般新增修改删除了都会进行清除 而不是只CachePut把插入的数据缓存到redis就行了
     @CacheEvict(cacheNames = "setmealCache",key = "#setmealDTO.categoryId")//key: setmealCache::100
     public Result save(@RequestBody SetmealDTO setmealDTO) {
         setmealService.saveWithDish(setmealDTO);

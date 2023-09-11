@@ -145,7 +145,7 @@ public class DishController {
     }
 
     /**
-     * 清理缓存数据
+     * 清理缓存数据  提取公共方法
      * @param pattern
      */
     private void cleanCache(String pattern){
